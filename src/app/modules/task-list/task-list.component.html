@@ -1,0 +1,26 @@
+<div>
+    <ng-container *ngIf="tasks$ | async as tasks">
+        <div *ngFor="let task of tasks">
+            <span>{{task.id}} - {{task.description}} {{task.completed}}</span>
+            <button (click)="remove(task)">Remove</button>
+        </div>
+    </ng-container>
+</div>
+
+<div class="form-container">
+    <div class="form-element">
+        <label [for]="description">description</label>
+        <input #description>
+    </div>
+    <div class="form-element">
+        <label [for]="completed">completed</label>
+        <input type="checkbox" #completed>
+    </div>
+    <button (click)="save(description.value, completed.checked)">Save</button>
+</div>
+
+<div class="loading"
+    *ngIf="loading$ | async">
+    loading...
+</div>
+  
