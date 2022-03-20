@@ -1,0 +1,1 @@
+# angular-ngrx-local-component-store
